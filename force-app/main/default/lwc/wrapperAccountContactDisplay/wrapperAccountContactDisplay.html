@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Accounts with Contacts Using Wrapper Class in LWC" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <template if:true={accountsWithContacts}>
+                <template for:each={accountsWithContacts} for:item="accWithContacts">
+                    <div key={accWithContacts.accRecord.Id}>
+                        <div class="slds-text-heading_medium" style="color: rgb(0, 88, 170);"><u>{accWithContacts.accRecord.Name}</u></div>
+                        <template if:true={accWithContacts.contactList}>
+                            <div class="slds-m-bottom_medium"><b>Total Associated Contact:</b> {accWithContacts.contactCount}</div>
+                            <br>
+                            <ul class="slds-list_dotted">
+                                <template for:each={accWithContacts.contactList} for:item="con">
+                                    <li key={con.Id}><b>Contact Name</b>: {con.Name}</li>
+                                    <ul class="slds-has-dividers_top-space" key={con.Id}>
+                                        <li class="slds-item"><b>Contact First Name :</b> {con.FirstName}</li>
+                                        <li class="slds-item"><b>Contact Last Name :</b> {con.LastName}</li>
+                                        <li class="slds-item"><b>Contact Email :</b> {con.Email}</li>
+                                        <li class="slds-item"><b>Contact Phone :</b> {con.MobilePhone}</li>
+                                      </ul>
+                                </template>
+                                <br>
+                            </ul>
+                        </template>
+                    </div>
+                </template>
+            </template>
+            <template if:true={error}>
+                {error}
+            </template>
+        </div>
+    </lightning-card>
+</template>

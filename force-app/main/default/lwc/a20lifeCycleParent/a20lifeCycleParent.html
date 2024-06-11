@@ -1,0 +1,41 @@
+<template>
+   <lightning-card title="Life Cycle Of LWC">
+     <p>BURASI PARENT</p>
+<lightning-input 
+type="text"
+label="ISIM girin"
+onchange={handleIsim}></lightning-input>
+
+<!-- <h1>ISIM : {isim}</h1>
+     <h1>sayi= {sayi}</h1>
+
+    <template for:each={accountList} for:item="cicek">    
+      <ol key={cicek.Id}> 
+        <li> Account Id -> {cicek.Id}</li>
+       <li> Account ADI -> {cicek.Name}</li>
+
+       <br>
+      </ol> 
+    </template>   -->
+
+<template if:true={flag}>
+<c-a20life-cycle-child></c-a20life-cycle-child>
+</template>
+
+<!--child comp.ini  kaldrırmak gerı getırmek ıcın  kullanıcam-(butonla ac ) -->
+<lightning-button
+ variant="brand" 
+ label="EKLE" 
+ title="Primary action"
+  onclick={handleEkle}
+   class="slds-m-left_x-small"></lightning-button>
+   <!--chıld comp.ı kaldrmak cıın kualnıcam (butonla kapat)-->
+<lightning-button
+ variant="destructive" 
+ label="CIKART"
+  title="Destructive action"
+   onclick={handleCikart}
+    class="slds-m-left_x-small"></lightning-button>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Stone Details" style="width: 100%;">
+        <br>
+ <lightning-button 
+   variant="brand" 
+   label="Ikinci ekran goster" 
+   title="ikinci ekran goster"
+   onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+     </lightning-card>
+ 
+     <section if:true={isListReady} role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-border">
+         <div class="slds-modal__container">
+             <header class="slds-modal__header">
+                 <h2 >BURASI HEADER   BASLIK YAZABILRISINIZ</h2>
+             </header>
+             <div class="slds-modal__content slds-p-around_medium" >
+                 <div style="height: 300px; width:500px; border:2px solid black ; background-color:aqua">
+                  <p> buraya bir list koyabilirsiniz</p>
+                 </div>             
+             </div>
+       <!--footer alt kısmı ayarlıyor-->
+             <footer class="slds-modal__footer">
+                 <button class="slds-button slds-button_neutral" onclick={handleCancel} title="Cancel">Cancel</button>
+                 
+                 <button class="slds-button slds-button_brand" onclick={handleFinalSave} title="save">Save</button>
+             </footer>
+         </div>
+       </section>
+       <!--  bu kisim arka ekranda ne varsa onlar ile iletisimi kesiyor flue hale getryr sılık-->
+       <div if:true={isListReady} class="slds-backdrop slds-backdrop_open"></div>
+</template>
